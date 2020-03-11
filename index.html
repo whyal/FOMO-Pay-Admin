@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOMO Pay Admin</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" style="color: red;">
+                <img src="https://www.fomopay.com/wp-content/uploads/2017/05/fomo-pay-logo-580-140.png" style="width: 180px; margin-top: 10px;">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-positions">Positions</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text" id="logout">Logout</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Positions</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                </span>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br/>
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn red darken-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Position List -->
+    <div class="container" style="margin-top: 40px;">
+        <ul class="collapsible z-depth-0 jobs" style="border: none;">
+
+        </ul>
+    </div>
+
+    <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Positions</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="jobTitle" required>
+          <label for="jobTitle">Job Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="jobDesc" class="materialize-textarea" required></textarea>
+          <label for="jobDesc">About</label>
+        </div>
+        <div class="input-field">
+            <textarea id="jobDesc" class="materialize-textarea" required></textarea>
+            <label for="jobDesc">What are we looking for?</label>
+          </div>
+        <button class="btn yellow darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCeg9iQTKP5jQrncYhtAfNxNAeVCVcNhC0",
+            authDomain: "fomo-pay.firebaseapp.com",
+            databaseURL: "https://fomo-pay.firebaseio.com",
+            projectId: "fomo-pay",
+            storageBucket: "fomo-pay.appspot.com",
+            messagingSenderId: "395783402623",
+            appId: "1:395783402623:web:f3f3f63a1ee9e8920f7b4a",
+            measurementId: "G-SFY1ZJVXZP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        //auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        //update firestore settings
+        db.settings({ timestampsInSnapshots: true })
+
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+
+</body>
+
+</html>
