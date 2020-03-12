@@ -34,7 +34,7 @@ const setupJobs = (data) => {
 
         jobList.innerHTML = html;
     } else {
-        jobList.innerHTML = '<h5 class="center-align">Please Login</h5>'
+        jobList.innerHTML = '<h5 class="center-align">Add Some Positions</h5>'
     }
 
 }
